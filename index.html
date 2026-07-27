@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="3rd Sem Engineering MCQ Quiz">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+
+        <header class="top-bar">
+            <div class="brand">Quiz</div>
+            <div class="clock-box" id="live-clock">--</div>
+        </header>
+
+        <section id="screen-welcome" class="screen active">
+            <div class="card">
+                <div class="welcome-emoji"></div>
+                <h1 class="welcome-title">Quiz</h1>
+                <p class="welcome-sub">10 MCQ questions</p>
+        
+                <button class="btn btn-primary" onclick="showScreen('screen-subject')">Pick a Subject →</button>
+            </div>
+        </section>
+
+        <section id="screen-subject" class="screen">
+            <div class="card">
+                <h2 class="section-title">Choose Your Subject</h2>
+                <div class="subjects-grid">
+                    <button class="subject-btn" onclick="selectSubject('os')">
+                        <span class="subj-icon">💻</span>
+                        <span class="subj-name">Operating Systems</span>
+                    </button>
+                    <button class="subject-btn" onclick="selectSubject('fsd')">
+                        <span class="subj-icon">🌐</span>
+                        <span class="subj-name">Full Stack Development</span>
+                    </button>
+                    <button class="subject-btn" onclick="selectSubject('maths')">
+                        <span class="subj-icon">📐</span>
+                        <span class="subj-name">Maths III</span>
+                    </button>
+                    <button class="subject-btn" onclick="selectSubject('hv')">
+                        <span class="subj-icon">🤝</span>
+                        <span class="subj-name">Human Values</span>
+                    </button>
+                    <button class="subject-btn" onclick="selectSubject('oops')">
+                        <span class="subj-icon">🔷</span>
+                        <span class="subj-name">OOPs</span>
+                    </button>
+                    <button class="subject-btn" onclick="selectSubject('dsa')">
+                        <span class="subj-icon">🌳</span>
+                        <span class="subj-name">Advance DSA</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-quiz" class="screen">
+            <div class="card">
+                <div class="active-subject-badge" id="active-subject-badge"></div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="quiz-meta">
+                    <span id="q-counter">Question 1 / 10</span>
+                    <span>Answered: <strong id="live-answered">0</strong></span>
+                </div>
+                <div class="question-box">
+                    <p id="question-text"></p>
+                </div>
+                <div class="options-grid" id="options-grid"></div>
+                <div class="nav-row">
+                    <button id="btn-next" class="btn btn-next hidden" onclick="nextQuestion()">Next →</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-result" class="screen">
+            <div class="card">
+                <div class="result-trophy" id="result-trophy">🏆</div>
+                <h2 class="result-grade" id="result-grade"></h2>
+                <p class="result-msg" id="result-msg"></p>
+                <div class="score-display">
+                    <span id="final-score">0</span><span class="score-denom"> / 10</span>
+                </div>
+                <div class="breakdown-title">Question Breakdown</div>
+                <div class="breakdown-list" id="breakdown-list"></div>
+                <div class="result-actions">
+                    <button class="btn btn-primary" onclick="restartQuiz()">🔄 Try Again</button>
+                    <button class="btn btn-secondary" onclick="showScreen('screen-subject')">📚 Change Subject</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
